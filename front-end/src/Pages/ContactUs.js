@@ -9,6 +9,14 @@ export default class extends Component {
         Message: ""
     }
 
+    getData = async (path) => {
+        const url = `http://localhost:3001${path}`
+        const response = await fetch(url)
+        const data = await response.json()
+    
+        return data
+      }
+
     onChangeHandler = (e) => {
         switch(e.target.id) {
             case "name":
@@ -45,11 +53,24 @@ export default class extends Component {
         return response
     }
 
-    
+    clickHandler = async () => {
+        await this.postData("/userInfo", this.state)
+    }
+
+    componentDidUpdate() {
+        console.log(this.state)
+    }
 
     render () {
         return (
-            <div>Contact information will go here</div>
+            <div>
+                <div>Name: <input id="name" type="text" onChange={this.onChangeHandler}/></div>
+                <div>Last Name: <input  id="lastName" type="text" onChange={this.onChangeHandler}/></div>
+                <div>Phone Number: <input  id="phoneNumber" type="text" onChange={this.onChangeHandler}/></div>
+                <div>Email: <input id="email" type="text" onChange={this.onChangeHandler}/></div>
+                <div>Message: <input id="message" type="text" onChange={this.onChangeHandler}/></div>
+                <button onClick={this.clickHandler}>Create</button>
+            </div>
         )
     }
 }
