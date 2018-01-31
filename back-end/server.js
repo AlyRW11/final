@@ -1,6 +1,3 @@
-import { request } from "https";
-import { userInfo } from "os";
-
 'use strict'
 
 const Hapi = require(hapi)
@@ -25,8 +22,7 @@ server.route({
 })
 
 const userInformation = async () => {
-    const connectionString ='
-    mongodb://ArWayne112:R0bin112@ds217898.mlab.com:17898/magiadigital'
+    const connectionString ='mongodb://ArWayne112:R0bin112@ds217898.mlab.com:17898/magiadigital'
     const db = Monk(connectionString)
     const userInfo = await  db.get("userInfo")
     return userInfo
@@ -34,9 +30,9 @@ const userInformation = async () => {
 
 server.route({
     method: 'POST',
-    path: '/cars',
+    path: '/contactus',
     handler: async (request, h) => {
-        const cars = await userInformation()
+        const userInfo = await userInformation()
         userInfo.insert(request.payload)
         console.log(request.payload)
         return h.response('success')

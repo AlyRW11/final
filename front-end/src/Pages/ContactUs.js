@@ -9,14 +9,6 @@ export default class extends Component {
         Message: ""
     }
 
-    getData = async (path) => {
-        const url = `http://localhost:3001${path}`
-        const response = await fetch(url)
-        const data = await response.json()
-    
-        return data
-      }
-
     onChangeHandler = (e) => {
         switch(e.target.id) {
             case "name":
