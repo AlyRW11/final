@@ -1,6 +1,6 @@
 'use strict'
 
-const Hapi = require(hapi)
+const Hapi = require('hapi')
 const Monk = require('monk')
 const server = Hapi.server({ 
     host: 'localhost', 
@@ -11,7 +11,7 @@ server.route({
     method: 'GET',
     path:'/', 
     handler: (request, h) => {
-        return {message:'hello world'}
+        return {message:'testing final'}
     },
     config: {
         cors: {
@@ -27,6 +27,22 @@ const userInformation = async () => {
     const userInfo = await  db.get("userInfo")
     return userInfo
 }
+
+server.route({
+    method: 'GET',
+    path:'/contactus', 
+    handler: async (request, h) => {
+        const userInfo = await userInformation()
+        const userObjects = await userInfo.find()
+        return { contactus: userObjects ? userObjects : [] }
+    },
+    config: {
+        cors: {
+            origin: ['*'],
+            additionalHeaders: ['cache-control', 'x-requested-with']
+        }
+    }
+})
 
 server.route({
     method: 'POST',

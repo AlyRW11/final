@@ -46,7 +46,7 @@ export default class extends Component {
     }
 
     clickHandler = async () => {
-        await this.postData("/userInfo", this.state)
+        await this.postData("/contactus", this.state)
     }
 
     componentDidUpdate() {
