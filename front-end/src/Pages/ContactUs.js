@@ -56,7 +56,7 @@ export default class extends Component {
     render () {
         return (
             <div>
-                <div>Name: <input id="name" type="text" onChange={this.onChangeHandler}/></div>
+                <div>First Name: <input id="name" type="text" onChange={this.onChangeHandler}/></div>
                 <div>Last Name: <input  id="lastName" type="text" onChange={this.onChangeHandler}/></div>
                 <div>Phone Number: <input  id="phoneNumber" type="text" onChange={this.onChangeHandler}/></div>
                 <div>Email: <input id="email" type="text" onChange={this.onChangeHandler}/></div>
