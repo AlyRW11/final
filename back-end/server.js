@@ -22,7 +22,7 @@ server.route({
 })
 
 const userInformation = async () => {
-    const connectionString ='mongodb://ArWayne112:R0bin112@ds217898.mlab.com:17898/magiadigital'
+    const connectionString ='mongodb://AlyRW112:123456@ds217898.mlab.com:17898/magiadigital'
     console.log("loading db")
     const db = Monk(connectionString)
     console.log ("loaded db")
