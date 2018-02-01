@@ -5,7 +5,7 @@ state = {
     contacts: []
 }
     getData = async (path) => {
-        const url = `http://localhost:3001/contactus`
+        const url = `http://localhost:3001${path}`
         const response = await fetch(url)
         const data = await response.json()
         console.log(data)
@@ -34,35 +34,25 @@ state = {
     }
 
     renderContacts = (contacts) => {
-        const contactElements = contacts
-        .filter((contact, index, array) => {
-            console.log(contacts.name)
-            return ("A"<= contacts.make && contact.make <= "Z")
-            || ("a"<= contact.make && contact.make <= "z")
-        })
-        .map(this.renderContact)
+        console.log(contacts,this.state.contacts)
+        const contactElements = contacts.map(this.renderContact)
 
         return contactElements
     }
 
     async componentDidMount() {
         const contactsResponse = await this.getData("/contactus")
+        console.log("contact response", contactsResponse)
         this.setState({ 
             contacts: contactsResponse.contacts
         })
-        
       }
-    
-
-    componentWillMount() {
-        this.getData ()
-    }
 
 
     render(){
         return (
             <div>
-            {this.renderContact(this.state.contacts)}
+            {this.renderContacts(this.state.contacts)}
             </div>
         )
     }

@@ -4,7 +4,7 @@ export default class extends Component {
     state = {
         name: "",
         lastName: "",
-        phoneNumber: 0,
+        phoneNumber: "",
         email: "",
         Message: ""
     }
@@ -18,7 +18,7 @@ export default class extends Component {
                 this.setState({lastName: e.target.value})
                 break
             case "phoneNumber":
-                this.setState({year: Number(e.target.value)})
+                this.setState({phoneNumber: e.target.value})
                 break
             case "email":
                 this.setState({email: e.target.value})

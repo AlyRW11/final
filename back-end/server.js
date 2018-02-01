@@ -23,8 +23,11 @@ server.route({
 
 const userInformation = async () => {
     const connectionString ='mongodb://ArWayne112:R0bin112@ds217898.mlab.com:17898/magiadigital'
+    console.log("loading db")
     const db = Monk(connectionString)
+    console.log ("loaded db")
     const userInfo = await  db.get("userInfo")
+    console.log("loaded userInfo")
     return userInfo
 }
 
@@ -32,9 +35,14 @@ server.route({
     method: 'GET',
     path:'/contactus', 
     handler: async (request, h) => {
+        console.log("start contactus")
         const userInfo = await userInformation()
-        const userObjects = await userInfo.find()
-        return { contactus: userObjects ? userObjects : [] }
+        console.log('got userInfo', userInfo)
+        const up = userInfo.find()
+        console.log('up', up)
+        const userObjects = await up
+        console.log("got userObjects")
+        return { contacts: userObjects ? userObjects : [] }
     },
     config: {
         cors: {
