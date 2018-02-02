@@ -2,15 +2,25 @@ import React, { Component } from 'react'
 
 export default class extends Component {
     state = {
-        package1: [],
-        package2: [],
-        package3: []
+        count: 0
     }
 
+    handlerClick() {
+        console.log("something")
+    }
 
-    render () {
-        return (
-            <div>Pricing will go here</div>
+    render(){
+        return(
+            <div>
+               <button onClick={(e) =>{
+                   this.setState((prevState) => {
+                       return{
+                           orderCount: prevState.orderCount + 1
+                       }
+                   })
+               }}> Package One </button>
+               <p>Order Count = {this.state.orderCount}</p>
+             </div>
         )
     }
 }
