@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Home from './Pages/Home'
 import AboutUs from './Pages/AboutUs'
-import Calendar from './Pages/Calendar'
 import ContactUs from './Pages/ContactUs'
 import PixAndFlix from './Pages/PixAndFlix'
 import Pricing from './Pages/Pricing'
@@ -18,14 +17,12 @@ class App extends Component {
           <nav>
             <Link to="/">Home </Link>
             <Link to="/aboutus">About Us </Link>
-            <Link to="/calendar">Calendar </Link>
             <Link to="/pixandflix">Projects </Link>
             <Link to="/pricing">Pricing </Link>
             <Link to="/contactus">Contact Us </Link>
           </nav>
           <Route exact path="/" component={Home}/>
           <Route path="/aboutus" component={AboutUs}/>
-          <Route path="/calendar" component={Calendar}/>
           <Route path="/contactus" component={ContactUs}/>
           <Route path="/pixandflix" component={PixAndFlix}/>
           <Route path="/pricing" component={Pricing}/>
