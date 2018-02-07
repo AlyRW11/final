@@ -17,17 +17,9 @@ export default class extends Component {
     render(){
         return(
             <div>
-                
-        <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Bautismos</Button>
-        <Collapse isOpen={this.state.collapse}>
-          <Card>
-            <CardBody>
-           Inforcioan de bautismos
-            </CardBody>
-          </Card>
-        </Collapse>
-
-        <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Bodas</Button>
+        <Button color="primary" 
+        onClick={this.toggle} 
+        style={{ marginBottom: '1rem' }}>Bodas</Button>
         <Collapse isOpen={this.state.collapse}>
           <Card>
             <CardBody>

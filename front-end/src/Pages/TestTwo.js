@@ -1,29 +1,20 @@
 import React, { Component } from 'react'
-// import logo from './logo.svg'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import {
-  Collapse, Navbar, NavbarToggler, NavbarBrand,
-  Nav, NavItem, NavLink, UncontrolledDropdown,
-  DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
-import Home from './Pages/Home'
-import AboutUs from './Pages/AboutUs'
-import ContactUs from './Pages/ContactUs'
-import Portfolio from './Pages/Portfolio'
-import Pricing from './Pages/Pricing'
-import Test from './Pages/Test'
-import TestTwo from './Pages/TestTwo'
-import './App.css'
+    Collapse, Navbar, NavbarToggler, NavbarBrand,
+    Nav, NavItem, NavLink, UncontrolledDropdown,
+    DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
 
-class App extends Component {
-  state = { isOpen: false }
+export default class extends Component {
+    state = { isOpen: false }
 
-  constructor(props) {
-  super(props)
-}
+    constructor(props) {
+    super(props)
+  }
 
-  toggle = () => {
-  this.setState({dropdownOpen: !this.state.dropdownOpen})
-}
+    toggle = () => {
+    this.setState({dropdownOpen: !this.state.dropdownOpen})
+  }
+
   render() {
     return (
       <div>
@@ -33,16 +24,16 @@ class App extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <NavLink href="/components/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/aboutus">About Us</NavLink>
+                <NavLink href="#">About Us</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/pixandflix">Portfolio</NavLink>
+                <NavLink href="#">Portfolio</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/contactus">Contact Us</NavLink>
+                <NavLink href="#">Contact Us</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -64,9 +55,23 @@ class App extends Component {
           </Collapse>
         </Navbar>
       </div>
-    )
+    );
   }
 }
 
-export default App;
+// Navbar.propTypes = {
+//     light: PropTypes.bool,
+//     dark: PropTypes.bool,
+//     fixed: PropTypes.string,
+//     color: PropTypes.string,
+//     role: PropTypes.string,
+//     expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+//     tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+//     // pass in custom element to use
+//   }
+
+//   NavbarBrand.propTypes = {
+//     tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+//     // pass in custom element to use
+//   }
 
