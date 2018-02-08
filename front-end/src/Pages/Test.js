@@ -37,25 +37,4 @@ export default class extends Component {
   }
 }
 
-//  <div className="App">
-// <Router>
-//   <div>
-//     <nav>
-//       <Link to="/">Home </Link>
-//       <Link to="/aboutus">About Us </Link>
-//       <Link to="/pixandflix">Projects </Link>
-//       <Link to="/pricing">Pricing </Link>
-//       <Link to="/contactus">Contact Us </Link>
-//       <Link to="/test"> Test </Link>
-//       <Link to="/testtwo"> Test2 </Link>
-//     </nav>
-//     <Route exact path="/" component={Home}/>
-//     <Route path="/aboutus" component={AboutUs}/>
-//     <Route path="/contactus" component={ContactUs}/>
-//     <Route path="/pixandflix" component={PixAndFlix}/>
-//     <Route path="/pricing" component={Pricing}/>
-//     <Route path="/test" component={Test}/>
-//     <Route path="/testtwo" component={TestTwo}/>
-//   </div>
-// </Router>
-// </div> 
+ 
