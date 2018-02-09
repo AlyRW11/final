@@ -5,9 +5,13 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.css'
 import {BrowserRouter } from 'react-router-dom'
+import {ApolloProvider} from 'react-apollo'
+import Client from './Client'
 
 ReactDOM.render(
+<ApolloProvider client={Client}>
 <BrowserRouter>
 <App/>
-</BrowserRouter>, document.getElementById('root'));
+</BrowserRouter>
+</ApolloProvider>, document.getElementById('root'));
 registerServiceWorker();

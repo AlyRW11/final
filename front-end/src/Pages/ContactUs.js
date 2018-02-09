@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
 
-export default class extends Component {
+class ContactUs extends Component {
     state = {
-        name: "",
+        firstName: "",
         lastName: "",
         phoneNumber: "",
         email: "",
@@ -11,8 +13,8 @@ export default class extends Component {
 
     onChangeHandler = (e) => {
         switch(e.target.id) {
-            case "name":
-                this.setState({name: e.target.value})
+            case "firstName":
+                this.setState({firstName: e.target.value})
                 break
             case "lastName":
                 this.setState({lastName: e.target.value})
@@ -27,7 +29,7 @@ export default class extends Component {
                 this.setState({message: e.target.value})
                 break    
             default:
-                throw Error("Invalid Id")
+
         }
     }
 
@@ -46,7 +48,10 @@ export default class extends Component {
     }
 
     clickHandler = async () => {
-        await this.postData("/contactus", this.state)
+        // 
+        const contact = await this.props.mutate({
+            variables: this.state
+          })
     }
 
     componentDidUpdate() {
@@ -56,7 +61,7 @@ export default class extends Component {
     render () {
         return (
             <div>
-                <div>First Name: <input id="name" type="text" onChange={this.onChangeHandler}/></div>
+                <div>First Name: <input id="firstName" type="text" onChange={this.onChangeHandler}/></div>
                 <div>Last Name: <input  id="lastName" type="text" onChange={this.onChangeHandler}/></div>
                 <div>Phone Number: <input  id="phoneNumber" type="text" onChange={this.onChangeHandler}/></div>
                 <div>Email: <input id="email" type="text" onChange={this.onChangeHandler}/></div>
@@ -66,3 +71,24 @@ export default class extends Component {
         )
     }
 }
+
+const mutation = gql`
+mutation (
+    $firstName: String!
+    $lastName: String!
+    $phoneNumber: String!
+    $email: String!
+    $message: String!
+){
+    createContact(
+        firstName: $firstName
+        lastName: $lastName
+        phoneNumber: $phoneNumber
+        email: $email
+        message: $message
+    ){
+        id
+    }
+}`
+
+export default graphql(mutation)(ContactUs)
