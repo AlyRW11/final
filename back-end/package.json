@@ -9,7 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apollo-cache-inmemory": "^1.1.7",
+    "apollo-client": "^2.2.3",
+    "apollo-client-preset": "^1.0.8",
+    "graphql": "^0.13.0",
+    "graphql-tag": "^2.7.3",
     "hapi": "^17.2.0",
-    "monk": "^6.0.5"
+    "monk": "^6.0.5",
+    "react-apollo": "^2.0.4"
   }
 }

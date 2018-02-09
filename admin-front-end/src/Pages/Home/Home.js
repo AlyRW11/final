@@ -1,30 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react'
+import {graphql} from 'react-apollo'
+import gql from 'graphql-tag'
 
-export default class extends Component {
-state = {
-    contacts: []
-}
-    getData = async (path) => {
-        const url = `http://localhost:3001${path}`
-        const response = await fetch(url)
-        const data = await response.json()
-        console.log(data)
 
-        return data
-      }
-    
-    displayInfo = (contacts) =>{
-        const contactsElement = []
-        for (const contact of contacts){
-          contactsElement.push(this.renderContact(contact))
-      }
-        return contactsElement
-      }
+class Home extends Component {
 
     renderContact = (contact) =>{
         return (
         <div key={contact.name + contact.lastName}>
-          <p>{contact.name}</p>
+          <p>{contact.firstName}</p>
           <p>{contact.lastName}</p>
           <p>{contact.email}</p>
           <p>{contact.phoneNumber}</p>
@@ -34,26 +18,30 @@ state = {
     }
 
     renderContacts = (contacts) => {
-        console.log(contacts,this.state.contacts)
+        console.log(contacts,this.props.data.allContacts)
         const contactElements = contacts.map(this.renderContact)
 
         return contactElements
     }
 
-    async componentDidMount() {
-        const contactsResponse = await this.getData("/contactus")
-        console.log("contact response", contactsResponse)
-        this.setState({ 
-            contacts: contactsResponse.contacts
-        })
-      }
-
-
     render(){
-        return (
+        if(!this.props.data.allContacts){
+            return (
+                <div>loading</div>
+            )
+        }
+        return(
             <div>
-            {this.renderContacts(this.state.contacts)}
+            {this.renderContacts(this.props.data.allContacts)}
             </div>
         )
     }
 }
+
+const query = gql `query {
+    allContacts{
+      firstName lastName phoneNumber email message
+    }
+  }`
+
+  export default graphql(query)(Home)
