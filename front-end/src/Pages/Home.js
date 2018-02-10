@@ -4,10 +4,11 @@ export default class extends Component {
     
     render () {
         return (
-            <div>Intro will go here
-
+            <div>
+                <h3>SOLO EN LOS MEJORES EVENTOS</h3>
+                <p></p>
         <footer>
-        Magia Digital Studio Copyright&copy; 2015
+        Magia Digital Studio Copyright&copy; 2009
         </footer>
             </div>
         )
