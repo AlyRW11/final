@@ -1,77 +1,52 @@
 import React, { Component } from 'react'
 import {
-    Collapse, Navbar, NavbarToggler, NavbarBrand,
-    Nav, NavItem, NavLink, UncontrolledDropdown,
-    DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
+  Collapse, Button, CardBody, Card, CardImg, CardTitle, CardText, CardDeck,
+  CardSubtitle
+} from 'reactstrap'
 
-export default class extends Component {
-    state = { isOpen: false }
-
-    constructor(props) {
+class Pricing extends Component {
+  constructor(props) {
     super(props)
   }
 
-    toggle = () => {
-    this.setState({dropdownOpen: !this.state.dropdownOpen})
+
+  toggle = () => {
+    this.setState({ collapse: !this.state.collapse })
   }
+
+  onClick()
+
 
   render() {
     return (
       <div>
-        <Navbar color="faded" light expand="md">
-          <NavbarBrand href="/"> Magia Digital Studio </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#">About Us</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#">Portfolio</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#">Contact Us</NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Pricing
-                </DropdownToggle>
-                <DropdownMenu >
-                  <DropdownItem>
-                    Bautismos
-                  </DropdownItem>
-                  <DropdownItem>
-                    Bodas
-                  </DropdownItem>
-                  <DropdownItem>
-                    Quinciañeras
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
-          </Collapse>
-        </Navbar>
+        <CardDeck>
+          <Card>
+            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+            <CardBody>
+              <CardTitle>Bautizos y Primera Comunion</CardTitle>
+              <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+              <Button onClick={this.toggle}>Button</Button>
+            </CardBody>
+          </Card>
+          <Card>
+            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+            <CardBody>
+              <CardTitle>Bodas y Quinceañeras</CardTitle>
+              <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
+              <Button>Button</Button>
+            </CardBody>
+          </Card>
+          <Card>
+            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+            <CardBody>
+              <CardTitle>Fotos Familiares</CardTitle>
+              <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
+              <Button>Button</Button>
+            </CardBody>
+          </Card>
+        </CardDeck>
       </div>
-    );
+    )
   }
 }
-
-// Navbar.propTypes = {
-//     light: PropTypes.bool,
-//     dark: PropTypes.bool,
-//     fixed: PropTypes.string,
-//     color: PropTypes.string,
-//     role: PropTypes.string,
-//     expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-//     tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-//     // pass in custom element to use
-//   }
-
-//   NavbarBrand.propTypes = {
-//     tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-//     // pass in custom element to use
-//   }
-

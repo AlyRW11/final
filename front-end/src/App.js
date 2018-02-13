@@ -49,6 +49,9 @@ render() {
             <NavItem>
               <NavLink href="/ContactUs">Contact Us</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/TestTwo">Test 2</NavLink>
+            </NavItem>
             
           </Nav>
         </Collapse>
