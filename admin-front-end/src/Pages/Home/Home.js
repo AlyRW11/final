@@ -8,11 +8,11 @@ class Home extends Component {
     renderContact = (contact) =>{
         return (
         <div key={contact.name + contact.lastName}>
-          <p>{contact.firstName}</p>
-          <p>{contact.lastName}</p>
-          <p>{contact.email}</p>
-          <p>{contact.phoneNumber}</p>
-          <p>{contact.message}</p>
+        <a href={`contact/${contact.id}`}> {contact.firstName} </a>
+        {contact.lastName}
+        {contact.email}
+        {contact.phoneNumber}
+          {contact.message}
         </div>
         )
     }
@@ -23,6 +23,8 @@ class Home extends Component {
 
         return contactElements
     }
+
+    
 
     render(){
         if(!this.props.data.allContacts){
@@ -51,7 +53,7 @@ class Home extends Component {
 
 const query = gql `query {
     allContacts{
-      firstName lastName phoneNumber email message
+      id firstName lastName phoneNumber email message
     }
   }`
 

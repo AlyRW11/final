@@ -1,52 +1,44 @@
-import React, { Component } from 'react'
-import {
-  Collapse, Button, CardBody, Card, CardImg, CardTitle, CardText, CardDeck,
-  CardSubtitle
-} from 'reactstrap'
+import React, { Component } from 'react';
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { Card, Button, CardImg, CardTitle, CardText, CardDeck,
+  CardSubtitle, CardBody, Collapse } from 'reactstrap'
 
 class Pricing extends Component {
+  state = {
+    collapse: false 
+  }
+
   constructor(props) {
-    super(props)
+    super(props);
   }
 
-
-  toggle = () => {
-    this.setState({ collapse: !this.state.collapse })
+  toggle= () =>  {
+    this.setState({ collapse: !this.state.collapse });
   }
-
-  onClick()
-
 
   render() {
-    return (
+    return(
       <div>
-        <CardDeck>
+        <Button className='pricing-one' onClick={this.toggle} style={{ marginBottom: '1rem' }}>See More</Button>
+        <Collapse isOpen={this.state.collapse}>
           <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
             <CardBody>
-              <CardTitle>Bautizos y Primera Comunion</CardTitle>
-              <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-              <Button onClick={this.toggle}>Button</Button>
+            Pricing one.
             </CardBody>
           </Card>
+        </Collapse>
+
+        <Button className='pricing-one' onClick={this.toggle} style={{ marginBottom: '1rem' }}>See More</Button>
+        <Collapse isOpen={this.state.collapse}>
           <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
             <CardBody>
-              <CardTitle>Bodas y Quinceañeras</CardTitle>
-              <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
-              <Button>Button</Button>
+            Pricing two.
             </CardBody>
           </Card>
-          <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
-            <CardBody>
-              <CardTitle>Fotos Familiares</CardTitle>
-              <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
-              <Button>Button</Button>
-            </CardBody>
-          </Card>
-        </CardDeck>
+        </Collapse>
       </div>
     )
   }
 }
+
+export default Pricing

@@ -33,19 +33,6 @@ class ContactUs extends Component {
         }
     }
 
-    // async postData(path, data) {
-    //     const url = `http://localhost:3001${path}`
-    //     const response = await fetch(url, {
-    //         method: 'POST',
-    //         mode: 'CORS',
-    //         body: JSON.stringify(data),
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    //     console.log(response)
-    //     return response
-    // }
 
     clickHandler = async () => {
         // 
