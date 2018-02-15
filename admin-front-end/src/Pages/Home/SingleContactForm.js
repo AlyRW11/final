@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import {updateContact} from './Service'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Redirect} from 'react-router-dom'
 import DeleteButton from './DeleteButton'
 
 class SingleContactForm extends Component {
@@ -12,7 +12,8 @@ class SingleContactForm extends Component {
         lastName: this.props.lastName,
         phoneNumber: this.props.phoneNumber,
         email: this.props.email,
-        Message: this.props.message
+        Message: this.props.message,
+        redirect: false
     }
     onChangeHandler = (e) => {
         switch (e.target.id) {
@@ -43,6 +44,9 @@ class SingleContactForm extends Component {
             }).then ((res) =>{
                 this.setState({res: true})
                 console.log('success')
+                this.setState({
+                    redirect: true
+                })
             }).catch ((e) => {
                 throw e
             })
@@ -50,7 +54,10 @@ class SingleContactForm extends Component {
 
     render() {
         console.log(this.state)
-
+        const {redirect} = this.state
+        if(redirect){
+            return <Redirect to='/'/>
+        }
         return (
             <div>
                 <div>First Name: <input id="firstName" placeholder={this.props.firstName} type="text" onChange={this.onChangeHandler} /></div>
