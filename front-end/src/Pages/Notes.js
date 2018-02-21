@@ -9,6 +9,12 @@ import TestTwo from './Pages/TestTwo'
 class App extends Component {
     state = { isOpen: false }
   
+    <h3>SOLO EN LOS MEJORES EVENTOS</h3>
+    <p></p>
+    <footer>
+        Magia Digital Studio Copyright&copy; 2009
+</footer>
+</div>
     constructor(props) {
     super(props)
   }
