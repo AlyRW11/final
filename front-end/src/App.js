@@ -13,6 +13,7 @@ import {
   import Test from './Pages/Test'
   import TestTwo from './Pages/TestTwo'
 import './App.css'
+import AppConfig from './AppConfig'
 
 class App extends Component {
 
@@ -51,6 +52,12 @@ render() {
             </NavItem>
             <NavItem>
               <NavLink href="/TestTwo">Test 2</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/Test">Test</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href={`${AppConfig.adminSiteRoot}`}>Admin</NavLink>
             </NavItem>
             
           </Nav>
