@@ -1,0 +1,4 @@
+[build]
+base = "admin-front-end"
+publish = "admin-front-end/build"
+command = "npm run build"
